@@ -70,7 +70,7 @@ body, html {
 .logout {
     position: absolute;
     bottom: 15%;
-    left: 50px;
+    left: 30px;
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -80,15 +80,8 @@ body, html {
     text-align: center;
     text-decoration: none; 
     display: block; 
-    border-radius: 4px 0px 0px 0px;
-    color: #5D5A88; 
-}
-
-.logout:hover {
+    border-radius: 4px;
     background-color: #5D5A88;
-    color: white;
-}
-
-.logout a:hover {
+    padding: 16px 24px;
     color: white;
 }
