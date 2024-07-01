@@ -8,7 +8,7 @@ body, html {
 
 /* Styles pour la sidebar */
 .sidebar {
-    width: 12%;
+    width: 10%;
     height: 100vh;
     background-color: #ffffff; /* Couleur de fond pour la barre latérale */
     padding: 20px;

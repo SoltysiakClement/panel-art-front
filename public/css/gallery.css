@@ -1,0 +1,81 @@
+.container {
+    margin-left: 15%;
+    padding-top: 2%;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artwork-card {
+    display: flex;
+    width: 90%; 
+    background: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px; 
+    position: relative; /* Important pour positionnement absolu à l'intérieur */
+}
+
+.icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.image-container img {
+    width: auto;
+    height: 120px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #5D5A88;
+}
+
+.prize-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #5D5A88;
+}
+
+.details h2 {
+    font-size: 1.4em; 
+    margin: 0 0 10px 0;
+}
+
+.details .id {
+    font-size: 0.9em;
+}
+
+.details .info {
+    margin: 4px 0;
+    color: #9896B8;
+    font-size: 0.8em;
+}
+
+.details .date {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-bottom: 2px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #D4D2E3; 
+    margin: 10px 0;
+    width: 100%;
+}

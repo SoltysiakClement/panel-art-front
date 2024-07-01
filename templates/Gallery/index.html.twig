@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie des Peintures{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="gallery">
+        {% for artwork in artworks %}
+            <div class="artwork-card">
+                <div class="icon-container">
+                    <img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+                </div>
+                <div class="image-container">
+                    <img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
+                </div>
+                <div class="details">
+                    <h2>{{ artwork.title }}</h2>
+                    <div class="id">N°{{ artwork.id }}</div>
+                    <div class="info">
+                        <div>{{artwork.method}}</div>
+                        <div>{{ artwork.height }} x {{ artwork.width }} cm</div>
+                    </div>
+
+                    <hr>
+
+                    <div class="date">{{ artwork.createdAt|date('F Y') }}</div>
+                    <div class="description">{{ artwork.description }}</div>
+                </div>
+                <div class="prize-container">
+                    {{ artwork.prize }} €
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
