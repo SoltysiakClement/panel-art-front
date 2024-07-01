@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="header">
+			<h1>Juillet 2024</h1>
+		</div>
+		<div class="dashboard">
+			<div class="left-panel">
+				<div class="card large">
+					<div class="card-content">
+						<div class="card-icon"></div>
+						<h2>
+							Chiffre d'affaire
+						</h2>
+						<p>12 789 €</p>
+					</div>
+				</div>
+			</div>
+			<div class="right-panel">
+				<div class="card">
+					<div class="card-content">
+						<div class="card-icon"></div>
+						<h3>
+							Nombre de ventes
+						</h3>
+						<p>15 +</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-content">
+						<div class="card-icon"></div>
+						<h3>
+							Acquéreurs
+						</h3>
+						<p>4 +</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-content">
+						<div class="card-icon"></div>
+						<h3>
+							Taux d'évolution</h3>
+						<p>+11,4%</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-content">
+						<div class="card-icon"></div>
+						<h3>
+							Certificats générés
+						</h3>
+						<p>12+</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
