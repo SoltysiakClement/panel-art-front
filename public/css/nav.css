@@ -3,16 +3,16 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9; /* Couleur de fond légère pour tout le document */
+    background-color: #f4f4f9; 
 }
 
 /* Styles pour la sidebar */
 .sidebar {
-    width: 12%;
+    width: 200px;
     height: 100vh;
-    background-color: #ffffff; /* Couleur de fond pour la barre latérale */
+    background-color: #ffffff; 
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Ombre pour un effet de profondeur */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
     position: fixed !important;
 }
 
@@ -20,54 +20,75 @@ body, html {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 40px; /* Espace entre les infos utilisateur et le menu */
+    margin-bottom: 40px; 
 }
 
 .avatar {
-    width: 50px; /* Taille de l'avatar */
+    width: 50px; 
     height: 50px;
-    background-color: #ccc; /* Couleur de fond en attendant une image */
-    border-radius: 25px; /* Rendre l'avatar circulaire */
+    background-color: #ccc; 
+    border-radius: 25px; 
 }
 
 .user-name {
     font-weight: bold;
-    color: #333; /* Couleur du texte pour le nom de l'utilisateur */
+    color: #333; 
 }
 
 /* Styles pour le menu de navigation */
 .menu {
-    list-style: none; /* Enlever les puces des listes */
-    padding: 0; /* Enlever le padding par défaut */
-    margin: 0; /* Enlever la marge par défaut */
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
 }
 
 .menu-item {
-    padding: 10px 15px; /* Padding autour des items pour un meilleur clic */
-    margin-bottom: 10px; /* Espace entre chaque item */
+    padding: 10px 15px; 
+    margin-bottom: 10px; 
     cursor: pointer;
-    transition: background-color 0.3s; /* Animation légère pour le survol */
+    transition: background-color 0.3s; 
+    display: flex;
+    flex-direction: row;
+    color: #302C66;
+}
+
+.menu-item img {
+    width: 20px; 
+    padding-right: 5px;
 }
 
 .menu-item a {
-    color: #333; /* Couleur des liens dans le menu */
-    text-decoration: none; /* Enlever le soulignement des liens */
-    display: block; /* Étendre la zone cliquable à tout le bloc */
+    color: #5D5A88;
+    text-decoration: none; 
+    display: block; 
 }
 
 .menu-item.active, .menu-item:hover {
-    background-color: #eee; /* Changement de fond lors du survol */
+    background-color: white; 
 }
 
-.menu-item.logout a {
-    color: #d9534f; /* Couleur rouge pour l'option de déconnexion */
+.logout {
+    position: absolute;
+    bottom: 15%;
+    left: 50px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.menu-item.logout:hover {
-    background-color: #d9534f; /* Fond rouge lors du survol pour déconnexion */
+.logout a {
+    text-align: center;
+    text-decoration: none; 
+    display: block; 
+    border-radius: 4px 0px 0px 0px;
+    color: #5D5A88; 
+}
+
+.logout:hover {
+    background-color: #5D5A88;
     color: white;
 }
 
-.menu-item.logout a:hover {
+.logout a:hover {
     color: white;
 }
