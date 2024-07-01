@@ -9,7 +9,6 @@
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
-			<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 		{% endblock %}
 
 		{% block javascripts %}
@@ -21,15 +20,7 @@
 
 	<body>
 		{% include '_navbar.html.twig' %}
-		<div class="container pt-2">
-			{% for type, messages in app.flashes %}
-				<div class="alert alert-{{ type }}">
-					{% for message in messages %}
-						{{ message }}
-					{% endfor %}
-				</div>
-			{% endfor %}
-			{% block body %}{% endblock %}
+		{% block body %}{% endblock %}
 		</div>
 	</body>
 </html>

@@ -8,11 +8,12 @@ body, html {
 
 /* Styles pour la sidebar */
 .sidebar {
-    width: 250px;
+    width: 12%;
     height: 100vh;
     background-color: #ffffff; /* Couleur de fond pour la barre latérale */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Ombre pour un effet de profondeur */
+    position: fixed !important;
 }
 
 .user-info {

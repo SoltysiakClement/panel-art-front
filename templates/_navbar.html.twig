@@ -46,26 +46,29 @@
     </div>
 </nav> #}
 
-<div class="sidebar">
-    <div class="user-info">
-        <div class="avatar"></div>
-        <span class="user-name">Julian</span>
-    </div>
-    <nav>
-        <div class="menu">
-            <div class="menu-item">
-                <a href="#">Tableau de bord</a>
-            </div>
-            <div class="menu-item ">
-                <a href="#">Clients</a>
-            </div>
-            <div class="menu-item ">
-                <a href="#">Tableaux</a>
-            </div>
-            <div class="menu-item logout">
-                <a href="#">Déconnexion</a>
-            </div>
-        </div>
-    </nav>
-</div>
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+{% endblock %}
 
+<div class="sidebar">
+	<div class="user-info">
+		<div class="avatar"></div>
+		<span class="user-name">Julian</span>
+	</div>
+	<nav>
+		<div class="menu">
+			<div class="menu-item">
+				<a href="#">Tableau de bord</a>
+			</div>
+			<div class="menu-item ">
+				<a href="#">Clients</a>
+			</div>
+			<div class="menu-item ">
+				<a href="#">Tableaux</a>
+			</div>
+			<div class="menu-item logout">
+				<a href="#">Déconnexion</a>
+			</div>
+		</div>
+	</nav>
+</div>
