@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class GalleryController extends AbstractController
 {
-    #[Route('/gallery', name: 'gallery')]
+    #[Route('/gallery', name: 'app_gallery')]
     public function index(): Response
     {
         $json = '[
