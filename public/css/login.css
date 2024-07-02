@@ -1,0 +1,67 @@
+/* Style complet pour la page de connexion */
+
+.login-container {
+    padding: 20px; /* Espace autour du formulaire sur petits écrans */
+    display: flex;
+    justify-content: center; /* Centre horizontalement le formulaire */
+    align-items: center; /* Centre verticalement le formulaire */
+    height: 100vh; /* Utilise toute la hauteur de la vue */
+}
+
+.login-box {
+    width: 100%; /* S'adapte à la largeur de son conteneur */
+    max-width: 460px; /* Largeur maximale pour une meilleure esthétique */
+    padding: 30px; /* Padding généreux pour un look spacieux */
+    border: 1px solid #ccc; /* Bordure subtile pour définir le formulaire */
+    border-radius: 8px; /* Bords arrondis pour une apparence douce */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre légère pour un effet de profondeur */
+    background: white; /* Fond blanc pour la clarté */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espace entre les champs du formulaire */
+}
+
+.form-group label {
+    display: block; /* Assure que le label est sur une ligne distincte */
+    margin-bottom: 5px; /* Petite marge sous le label pour séparer du champ */
+    color: #666; /* Couleur douce pour les textes des labels */
+}
+
+.form-control {
+    width: 100%; /* Remplit la largeur disponible */
+    padding: 10px; /* Padding interne pour le confort */
+    border: 1px solid #ddd; /* Bordure discrète */
+    border-radius: 4px; /* Bords légèrement arrondis */
+    box-sizing: border-box; /* Inclut padding et bordure dans la largeur */
+}
+
+.btn-primary {
+    width: 100%; 
+    padding: 12px; 
+    border: none; 
+    border-radius: 4px; 
+    background-color: #007BFF; 
+    color: white; 
+    cursor: pointer; 
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; 
+}
+
+.text-center {
+    width: 100%; 
+    text-align: center; 
+}
+
+.logged-in, .alert {
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+.alert {
+    color: #721c24; 
+    background-color: #f8d7da; 
+    border-color: #f5c6cb; 
+}
