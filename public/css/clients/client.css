@@ -1,0 +1,141 @@
+body {
+    background-color: #df8ccf;
+}
+
+.container {
+    height: 100vh;
+    padding: 20px;
+    margin-left: 260px;
+    padding-top: 2%;
+    color: #5D5A88;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.info_client {
+    padding-right: 5px;
+    border-right: solid 1px #D4D2E3;
+    height: 50vh;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.info-box {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.info-box .address {
+    display: flex;
+    flex-direction: row;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    flex: 1;
+}
+
+.card .number {
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* si trop d'élément on affiche une scroll bar */
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.artwork-card {
+    display: flex;
+    width: 90%; 
+    background: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px; 
+    position: relative; /* Important pour positionnement absolu à l'intérieur */
+}
+
+.icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    border: #5D5A88 solid 1px;
+    padding: 2px 7px;
+    font-size: 0.8em;
+}
+
+.icon-container div{
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.image-container img {
+    width: auto;
+    height: 120px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #5D5A88;
+}
+
+.details h2 {
+    font-size: 1.1em; 
+    margin: 0 0 10px 0;
+}
+
+.details .id {
+    font-size: 0.8em;
+}
+
+.details .info {
+    margin: 4px 0;
+    color: #9896B8;
+    font-size: 0.7em;
+}
+
+.details .date {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-bottom: 2px;
+}
+
+.gallery hr {
+    border: none;
+    height: 1px;
+    background-color: #D4D2E3; 
+    margin: 10px 0;
+    width: 150px;
+}
