@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/clients/list_clients.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% include '_navbar.html.twig' %}
+
+	<div
+		class="container">
+		{# <div class="alert">
+																	Attention! Des utilisateurs n'ont pas encore validé leur profil
+																</div> #}
+		<button class="add-client-btn">
+			<img src="{{ asset('icons/add-circle.png') }}">
+			<div>
+				Ajouter un client
+			</div>
+		</button>
+		<div class="client-count">46 clients</div>
+		<div
+			class="client-list">
+			<!-- Repeat this block for each client -->
+			<div class="client">
+				<div class="client-info">
+					<div class="client-name">Barbara Stuff</div>
+					<p>barbara.stuff@example.fr</p>
+				</div>
+				<span class="status verified">
+					<img src="{{ asset('icons/add-circle.png') }}">
+					<div>
+						Vérifié
+					</div>
+				</span>
+				<span class="status artwork">
+					<img src="{{ asset('icons/gallery-2.png') }}">
+					<div>
+						10
+					</div>
+				</span>
+				<div class="btn-edit">
+					<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

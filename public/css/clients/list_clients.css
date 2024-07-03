@@ -1,0 +1,107 @@
+body {
+    background-color: #df8ccf;
+}
+
+
+.container {
+    padding: 20px;
+    margin-left: 260px;
+    padding-top: 2%;
+    padding: 20px;
+    color: #5D5A88;
+    height: 100%;
+}
+
+.alert {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.add-client-btn {
+    background-color: #5D5A88;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 2%;
+}
+
+.add-client-btn div{
+    margin-top: 4px;
+    margin-left: 5px;
+}
+
+.client-count {
+    font-size: 1.2em;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    padding-bottom: 2px;
+    margin-top: 70px;
+}
+
+.client {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px ;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 2px;
+}
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-info .client-name {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.client-info p {
+    color: #666;
+    margin: 0;
+}
+
+.status {
+    padding: 4px 14px;
+    border-radius: 25px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.status img {
+    margin: 0 2px;
+}
+
+.status div {
+    margin-top: 2.5px;
+    margin-left: 5px;
+}
+
+.verified {
+    background-color: #8CBBAB;
+}
+
+.artwork {
+    background-color: #5D5A88;
+}
+
+.client-actions span {
+    margin-right: 15px;
+}
+
+.btn-edit {
+    margin-top: 2.5px;
+}
