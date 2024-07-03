@@ -46,7 +46,8 @@ class GalleryController extends AbstractController
         $artworks = json_decode($json, true);
 
         return $this->render('gallery/index.html.twig', [
-            'artworks' => $artworks
+            'artworks' => $artworks,
+            'user_name' => $user['firstname'].' '.$user['lastname']
         ]);
     }
 }
