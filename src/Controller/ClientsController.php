@@ -18,9 +18,25 @@ class ClientsController extends AbstractController
     {
         $this->httpClient = $httpClient;
     }
+
+    #[Route('/clients', name: 'app_clients')]
+    public function index(MyCacheService $cacheService): Response
+    {
+        $user = $cacheService->getCacheData('user');
+        if(!$user){
+            return $this->redirectToRoute('app_login');
+        }
+
+        $url_artworks = $_ENV['API_URL'] . '/peintures';
+        $reponseData = $this->httpClient->request('GET', $url_artworks);
+        
+        return $this->render('clients/index.html.twig', [
+            'user_name' => $user['firstname'].' '.$user['lastname']
+        ]);
+    }
     
     #[Route('/detail_client', name: 'app_detail_client')]
-    public function index(MyCacheService $cacheService): Response
+    public function detail(MyCacheService $cacheService): Response
     {
         $user = $cacheService->getCacheData('user');
         if(!$user){
@@ -31,7 +47,7 @@ class ClientsController extends AbstractController
         $reponseData = $this->httpClient->request('GET', $url_artworks);
         $artworks = $reponseData->toArray();
         
-        return $this->render('clients/index.html.twig', [
+        return $this->render('clients/detail.html.twig', [
             'user_name' => $user['firstname'].' '.$user['lastname'],
             'artworks' => $artworks
         ]);

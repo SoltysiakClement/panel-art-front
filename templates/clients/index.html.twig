@@ -4,75 +4,48 @@
 {% endblock %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/clients/client.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/clients/list_clients.css') }}">
 {% endblock %}
 
 {% block body %}
 	{% include '_navbar.html.twig' %}
 
-	<div class="container">
-		<div class="info_client">
-			<h1>Barbara Stuff</h1>
-			<div class="info-box">
-				<p>
-					<b>Adresse email :</b>
-					barbara.stuff@example.fr</p>
-				<p>
-					<b>Téléphone :</b>
-					06 66 66 66 66</p>
-				<p class="address">
-					<b>Adresse postale :</b>
-					33 rue de Lille<br>Appt 19 Résidence Boris Vian<br>59000 Lille
-				</p>
-				<div></p>
+	<div
+		class="container">
+		{# <div class="alert">
+																	Attention! Des utilisateurs n'ont pas encore validé leur profil
+																</div> #}
+		<button class="add-client-btn">
+			<img src="{{ asset('icons/add-circle.png') }}">
+			<div>
+				Ajouter un client
 			</div>
-		</div>
-		<div class="stats">
-			<div class="card">
-				<div class="label">Tableaux</div>
-				<div class="number">21</div>
-			</div>
-			<div class="card" style="margin: 0 10px">
-				<div class="label">Certificats</div>
-				<div class="number">18</div>
-			</div>
-			<div class="card">
-				<div class="label">Argents dépensés</div>
-				<div class="number">8 784€</div>
-			</div>
-		</div>
-	</div>
-	<div class="gallery">
-		{% for artwork in artworks %}
-			<div class="artwork-card">
-				<div class="icon-container">
-					<img src="{{ asset('icons/user-octagon.png') }}"/>
-					<div>Envoyer le certificat</div>
+		</button>
+		<div class="client-count">46 clients</div>
+		<div
+			class="client-list">
+			<!-- Repeat this block for each client -->
+			<div class="client">
+				<div class="client-info">
+					<div class="client-name">Barbara Stuff</div>
+					<p>barbara.stuff@example.fr</p>
 				</div>
-				{# <div class="icon-container">
-																			<img src="{{ asset('icons/receipt-edit.png') }}" />
-																			<div>Générer le certificat</div>
-																		</div> #}
-				<div class="image-container">
-					<img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
-				</div>
-				<div class="details">
-					<h2>{{ artwork.title }}</h2>
-					<div class="id">N°{{ artwork.id }}</div>
-					<div class="info">
-						<div>{{artwork.method}}</div>
-						<div>{{ artwork.height }}
-							x
-							{{ artwork.width }}
-							cm</div>
+				<span class="status verified">
+					<img src="{{ asset('icons/add-circle.png') }}">
+					<div>
+						Vérifié
 					</div>
-
-					<hr>
-
-					<div class="date">{{ artwork.createdAt|date('F Y') }}</div>
-					<div class="description">{{ artwork.description }}</div>
+				</span>
+				<span class="status artwork">
+					<img src="{{ asset('icons/gallery-2.png') }}">
+					<div>
+						10
+					</div>
+				</span>
+				<div class="btn-edit">
+					<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
 				</div>
 			</div>
-		{% endfor %}
+		</div>
 	</div>
 </div>{% endblock %}
