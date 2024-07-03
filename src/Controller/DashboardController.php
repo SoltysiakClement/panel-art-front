@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\MyCacheService;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,20 +11,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DashboardController extends AbstractController
 {
-    private $cache;
-
-    public function __construct(CacheInterface $cache)
-    {
-        $this->cache = $cache;
-    }
-
     #[Route('/', name: 'app_dashboard')]
-    public function index(): Response
+    public function index(MyCacheService $cacheService): Response
     {
-        $user = $this->cache->get('user', function (ItemInterface $item) {
-            $item->expiresAfter(3600);
-            return $this->getUser();
-        });
+        $user = $cacheService->getCacheData('user');
         if(!$user){
             return $this->redirectToRoute('app_login');
         }
