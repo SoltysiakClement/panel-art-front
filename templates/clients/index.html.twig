@@ -13,14 +13,14 @@
 	<div
 		class="container">
 		{# <div class="alert">
-																	Attention! Des utilisateurs n'ont pas encore validé leur profil
-																</div> #}
-		<button class="add-client-btn">
+			Attention! Des utilisateurs n'ont pas encore validé leur profil
+		</div> #}
+		<a href="{{ path('app_add_client') }}" class="add-client-btn">
 			<img src="{{ asset('icons/add-circle.png') }}">
 			<div>
 				Ajouter un client
 			</div>
-		</button>
+		</a>
 		<div class="client-count">46 clients</div>
 		<div
 			class="client-list">

@@ -1,4 +1,3 @@
-/* Overall form and container styling */
 .container {
     margin-left: 260px;
     padding-top: 2%;
@@ -6,7 +5,7 @@
     margin-right: 2%;
 }
 
-.form-artwork-add {
+.form-client-add {
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 24px;
@@ -18,7 +17,12 @@
     font-weight: bold;
 }
 
-/* Styling for form fields */
+.form-input {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
 .form-control {
     width: 100%;
     padding: 8px 10px;
@@ -29,9 +33,10 @@
     margin-bottom: 24px;
 }
 
-.form-input {
+.input-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 24px;
 }
 
 .input-label {
@@ -39,31 +44,11 @@
     padding-right: 10px;
 }
 
-.input-top {
+.input-4 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 24px;
-}
-
-
-/* File upload area styling */
-.file-upload {
-    border: 2px dashed #ccc;
-    border-radius: 5px;
-    position: relative;
-    text-align: center;
-    padding: 20px;
-    padding-top: 30px;
-    margin-top: 20px;
-    margin-left: 20px;
-    height: 50%;
-}
-
-.file-upload p {
-    margin: 0;
-    font-size: 16px;
-    color: #666;
 }
 
 /* Buttons styling */
@@ -75,23 +60,6 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-button img {
-    height: 24px;
-}
-
-.import {
-    display: flex;
-	flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10%;
-    margin-left: 35%;
-}
-
-.import div {
-    padding-left: 2px;
 }
 
 button:hover {
