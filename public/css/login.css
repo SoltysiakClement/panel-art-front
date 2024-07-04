@@ -1,39 +1,42 @@
-/* Style complet pour la page de connexion */
-
 .login-container {
-    padding: 20px; /* Espace autour du formulaire sur petits écrans */
+    padding: 20px; 
     display: flex;
-    justify-content: center; /* Centre horizontalement le formulaire */
-    align-items: center; /* Centre verticalement le formulaire */
-    height: 100vh; /* Utilise toute la hauteur de la vue */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    font-family: Arial, sans-serif;
 }
 
 .login-box {
-    width: 100%; /* S'adapte à la largeur de son conteneur */
-    max-width: 460px; /* Largeur maximale pour une meilleure esthétique */
-    padding: 30px; /* Padding généreux pour un look spacieux */
-    border: 1px solid #ccc; /* Bordure subtile pour définir le formulaire */
-    border-radius: 8px; /* Bords arrondis pour une apparence douce */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre légère pour un effet de profondeur */
-    background: white; /* Fond blanc pour la clarté */
+    width: 100%; 
+    max-width: 460px; 
+    padding: 30px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: white; 
+}
+
+.login-box div {
+    margin-bottom: 20px; 
 }
 
 .form-group {
-    margin-bottom: 15px; /* Espace entre les champs du formulaire */
+    margin-bottom: 15px; 
 }
 
 .form-group label {
-    display: block; /* Assure que le label est sur une ligne distincte */
-    margin-bottom: 5px; /* Petite marge sous le label pour séparer du champ */
-    color: #666; /* Couleur douce pour les textes des labels */
+    display: block; 
+    margin-bottom: 5px; 
+    color: #666; 
 }
 
 .form-control {
-    width: 100%; /* Remplit la largeur disponible */
-    padding: 10px; /* Padding interne pour le confort */
-    border: 1px solid #ddd; /* Bordure discrète */
-    border-radius: 4px; /* Bords légèrement arrondis */
-    box-sizing: border-box; /* Inclut padding et bordure dans la largeur */
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
 }
 
 .btn-primary {
@@ -41,13 +44,13 @@
     padding: 12px; 
     border: none; 
     border-radius: 4px; 
-    background-color: #007BFF; 
+    background-color: #5D5A88; 
     color: white; 
     cursor: pointer; 
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; 
+    background-color: #5D5A88; 
 }
 
 .text-center {
