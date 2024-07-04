@@ -49,6 +49,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 24px;
+    padding-top: 10px;
 }
 
 /* Buttons styling */
@@ -66,13 +67,18 @@ button:hover {
     background-color: #5D5A88;
 }
 
-.btn-default {
+.btn-danger {
     background-color: white;
     color: #5D5A88;
     border: solid 1px #5D5A88;
+    padding: 7px 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
-.btn-default:hover {
+.btn-danger:hover {
     background-color: white;
     color: #5D5A88;
 }
