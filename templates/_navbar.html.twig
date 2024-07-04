@@ -4,10 +4,34 @@
 
 <div class="top">
 	<div class="user-profile">
-		<div class="user-avatar">{{user_initials }}</div>
-		<div class="user-name">{{user_name}}</div>
+		<div class="user-avatar">{{ user_initials }}</div>
+		<div class="user-details">
+			<div class="user-name">{{ user_name }}</div>
+			<div class="user-roles" style="margin-left: 10px;">
+				{% for role in user.roles %}
+					<div class="user-role">{{ role }}</div>
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 </div>
+
+<style>
+	.user-roles {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.user-role {
+		background-color: #e0e0e0;
+		border-radius: 3px;
+		padding: 2px 5px;
+		margin-right: 5px;
+		font-size: 14px;
+		color: #555;
+	}
+</style>
+
 <div class="sidebar">
 	<div class="logo">
 		<img src="{{ asset('icons/Logo.png') }}" alt="Logo"/>
@@ -18,14 +42,23 @@
 				<img src="{{ asset('icons/category-2.png') }}" alt="Category"/>
 				<a href="{{ path('app_dashboard') }}">Tableau de bord</a>
 			</div>
-			<div class="menu-item ">
-				<img src="{{ asset('icons/people.png') }}" alt="People"/>
-				<a href="{{ path('app_clients') }}">Clients</a>
-			</div>
-			<div class="menu-item ">
-				<img src="{{ asset('icons/gallery.png') }}" alt="Gallery"/>
-				<a href="{{ path('app_gallery') }}">Tableaux</a>
-			</div>
+			{% if 'ROLE_ADMIN' in user.roles %}
+				<div class="menu-item ">
+					<img src="{{ asset('icons/people.png') }}" alt="People"/>
+					<a href="{{ path('app_clients') }}">Clients</a>
+				</div>
+			{% else %}
+				<div class="menu-item">
+					<img src="{{ asset('icons/people.png') }}" alt="People"/>
+					<a href="{{ path('app_detail_client', { 'email': user.email }) }}">Profil</a>
+				</div>
+			{% endif %}
+			{% if 'ROLE_PEINTRE' in user.roles %}
+				<div class="menu-item ">
+					<img src="{{ asset('icons/gallery.png') }}" alt="Gallery"/>
+					<a href="{{ path('app_gallery') }}">Tableaux</a>
+				</div>
+			{% endif %}
 			<div class="logout">
 				<a href="{{ path('app_logout') }}">Déconnexion</a>
 			</div>

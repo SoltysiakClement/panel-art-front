@@ -46,7 +46,6 @@ class SecurityController extends AbstractController
                 
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Impossible de se connecter à l\'API.');
-                dd('Erreur : ' . $e->getMessage());
             }
         }
 
