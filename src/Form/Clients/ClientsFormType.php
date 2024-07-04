@@ -16,10 +16,13 @@ class ClientsFormType extends AbstractType
         $builder
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
+            ->add('password', TextType::class)
             ->add('email', EmailType::class)
             ->add('phone', NumberType::class)
             ->add('address', TextType::class)
-            ->add('complement', TextType::class)
+            ->add('complement', TextType::class, [
+                'required' => false,
+            ])
             ->add('town', TextType::class)
             ->add('postalCode', NumberType::class);
     }
