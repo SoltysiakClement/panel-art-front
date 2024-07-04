@@ -25,6 +25,11 @@
 							<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
 						</a>
 					</div>
+					<div class="icon-container" style="margin-top: 35px">
+						<a href="{{ path('app_gallery_delete', { 'id': artwork.id }) }}">
+							<img src="{{ asset('icons/trash.png') }}" alt="Delete" style="width: 25px; height: 25px;" />
+						</a>
+					</div>
 					<div class="image-container">
 						<img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
 					</div>
