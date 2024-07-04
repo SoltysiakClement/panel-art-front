@@ -20,6 +20,11 @@
 		<div class="gallery">
 			{% for artwork in artworks %}
 				<div class="artwork-card">
+					<div class="icon-container">
+						<a href="{{ path('app_gallery_edit', { 'id': artwork.id }) }}">
+							<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+						</a>
+					</div>
 					<div class="image-container">
 						<img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
 					</div>
