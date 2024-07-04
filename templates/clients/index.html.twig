@@ -21,31 +21,36 @@
 				Ajouter un client
 			</div>
 		</a>
-		<div class="client-count">46 clients</div>
+		<div class="client-count">{{ nbClients }} clients</div>
 		<div
 			class="client-list">
 			<!-- Repeat this block for each client -->
-			<div class="client">
-				<div class="client-info">
-					<div class="client-name">Barbara Stuff</div>
-					<p>barbara.stuff@example.fr</p>
-				</div>
-				<span class="status verified">
-					<img src="{{ asset('icons/add-circle.png') }}">
-					<div>
-						Vérifié
+			{% for client in clients %}
+				<div class="client">
+					<div class="client-info">
+						<div class="client-name">{{ client.firstname ~ ' ' ~ client.lastname }}</div>
+						<p>{{ client.email }}</p>
 					</div>
-				</span>
-				<span class="status artwork">
-					<img src="{{ asset('icons/gallery-2.png') }}">
-					<div>
-						10
+					<span class="status verified">
+						<img src="{{ asset('icons/add-circle.png') }}">
+						<div>
+							Vérifié
+						</div>
+					</span>
+					<span class="status artwork">
+						<div>
+							{{ client.town }}
+						</div>
+					</span>
+					<div class="btn-edit">
+						<a href="{{ path('app_detail_client', { 'email': client.email }) }}">
+							<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+						</a>
 					</div>
-				</span>
-				<div class="btn-edit">
-					<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+
 				</div>
-			</div>
+			{% endfor %}
+
 		</div>
 	</div>
 </div>{% endblock %}

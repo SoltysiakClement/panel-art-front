@@ -11,12 +11,15 @@
 	{% include '_navbar.html.twig' %}
 
 	<div class="container">
+		<a href="{{ path('app_gallery_add') }}" class="add-client-btn">
+			<img src="{{ asset('icons/add-circle.png') }}">
+			<div>
+				Ajouter un tableau
+			</div>
+		</a>
 		<div class="gallery">
 			{% for artwork in artworks %}
 				<div class="artwork-card">
-					<div class="icon-container">
-						<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
-					</div>
 					<div class="image-container">
 						<img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
 					</div>

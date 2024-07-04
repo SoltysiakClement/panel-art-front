@@ -50,19 +50,28 @@ class GalleryController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $artworkData = $form->getData();
-            $url = $_ENV['API_URL'] . '/peintures';
+            $urlPeinture = $_ENV['API_URL'] . '/peintures';
 
-            $response = $this->httpClient->request('POST', $url, [
-                'json' => $artworkData
-            ]);
-            dd($response);
+            $data = [
+                'title' => $artworkData['title'],
+                'height' => $artworkData['height'],
+                'width' => $artworkData['width'],
+                'description' => $artworkData['description'],
+                'quantity' => $artworkData['quantity'],
+                'createdAt' => $artworkData['createdAt']->format('Y-m-d\TH:i:s\Z'),
+                'method' => $artworkData['method'],
+                'prize' => $artworkData['prize'],
+            ];
 
-            if ($response->getStatusCode() === 200 || $response->getStatusCode() === 201) {
-                $this->addFlash('success', 'Artwork added successfully!');
+            try {
+                $response = $this->httpClient->request('POST', $urlPeinture, [
+                    'json' => $data,
+                ]);
+
+
                 return $this->redirectToRoute('app_gallery');
-            } else {
-                // Handle non-successful responses
-                $this->addFlash('error', 'Failed to add artwork due to API error.');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'An error occurred: ' . $e->getMessage());
             }
 
         }

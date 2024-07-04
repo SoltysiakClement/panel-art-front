@@ -16,13 +16,13 @@
 			<div class="info-box">
 				<p>
 					<b>Adresse email :</b>
-					barbara.stuff@example.fr</p>
+					{{ client.email }}</p>
 				<p>
 					<b>Téléphone :</b>
-					06 66 66 66 66</p>
+					{{ client.phone }}</p>
 				<p class="address">
 					<b>Adresse postale :</b>
-					33 rue de Lille<br>Appt 19 Résidence Boris Vian<br>59000 Lille
+					{{ client.adresse }}<br>{{ client.complement }}<br>{{ client.postalCode }} {{ client.town }}
 				</p>
 				<div></p>
 			</div>
@@ -30,7 +30,7 @@
 		<div class="stats">
 			<div class="card">
 				<div class="label">Tableaux</div>
-				<div class="number">21</div>
+				<div class="number">{{ nbPeintures }}</div>
 			</div>
 			<div class="card" style="margin: 0 10px">
 				<div class="label">Certificats</div>
@@ -38,12 +38,12 @@
 			</div>
 			<div class="card">
 				<div class="label">Argents dépensés</div>
-				<div class="number">8 784€</div>
+				<div class="number">{{ chiffreAffaire }}€</div>
 			</div>
 		</div>
 	</div>
 	<div class="gallery">
-		{% for artwork in artworks %}
+		{% for artwork in peintures %}
 			<div class="artwork-card">
 				<div class="icon-container">
 					<img src="{{ asset('icons/user-octagon.png') }}"/>
