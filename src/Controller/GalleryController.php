@@ -158,5 +158,35 @@ class GalleryController extends AbstractController
         ]);
     }
 
+    #[Route('/delete/{id}', name: 'app_gallery_delete')]
+    public function delete(int $id, MyCacheService $cacheService): Response
+    {
+        $user = $cacheService->getCacheData('user');
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        if (!in_array('ROLE_PEINTRE', $user['roles'])) {
+            return $this->redirectToRoute('app_dashboard');
+        }
+
+        $url = $_ENV['API_URL'].'/peintures/' . $id;
+
+        try {
+            $response = $this->httpClient->request('DELETE', $url);
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode === 204) {
+                $this->addFlash('success', 'Sale deleted successfully.');
+            } else {
+                $this->addFlash('error', 'Failed to delete sale.');
+            }
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'An error occurred: ' . $e->getMessage());
+        }
+
+        return $this->redirectToRoute('app_gallery');
+    }
+
 
 }
