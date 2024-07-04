@@ -52,6 +52,10 @@ class GalleryController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        if (!in_array('ROLE_PEINTRE', $user['roles'])) {
+            return $this->redirectToRoute('app_dashboard');
+        }
+
         $form = $this->createForm(ArtworksFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -90,5 +94,69 @@ class GalleryController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    #[Route('/edit/{id}', name: 'app_gallery_edit')]
+    public function editArtwork(int $id, Request $request, MyCacheService $cacheService): Response
+    {
+        $user = $cacheService->getCacheData('user');
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        if (!in_array('ROLE_PEINTRE', $user['roles'])) {
+            return $this->redirectToRoute('app_dashboard');
+        }
+
+        $urlPeinture = $_ENV['API_URL'] . '/peintures/' . $id;
+
+        // Récupérer l'œuvre existante
+        try {
+            $response = $this->httpClient->request('GET', $urlPeinture);
+            $artworkData = $response->toArray();
+
+            if (isset($artworkData['createdAt'])) {
+                $artworkData['createdAt'] = new \DateTime($artworkData['createdAt']);
+            }
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'An error occurred while fetching the artwork: ' . $e->getMessage());
+            return $this->redirectToRoute('app_gallery');
+        }
+
+        $form = $this->createForm(ArtworksFormType::class, $artworkData);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $artworkData = $form->getData();
+
+            $data = [
+                'title' => $artworkData['title'],
+                'height' => $artworkData['height'],
+                'width' => $artworkData['width'],
+                'description' => $artworkData['description'],
+                'quantity' => $artworkData['quantity'],
+                'createdAt' => $artworkData['createdAt']->format('Y-m-d\TH:i:s\Z'),
+                'method' => $artworkData['method'],
+                'prize' => $artworkData['prize'],
+            ];
+
+            try {
+                $response = $this->httpClient->request('PUT', $urlPeinture, [
+                    'json' => $data,
+                ]);
+
+                return $this->redirectToRoute('app_gallery');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'An error occurred: ' . $e->getMessage());
+            }
+        }
+
+        // Rediriger vers la page de formulaire en cas d'erreur ou afficher à nouveau le formulaire
+        return $this->render('gallery/edit.html.twig', [
+            'user' => $user,
+            'user_name' => $user['firstname'] . ' ' . $user['lastname'],
+            'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
+            'form' => $form->createView()
+        ]);
+    }
+
 
 }
