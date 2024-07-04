@@ -1,12 +1,14 @@
 .container {
     margin-left: 230px;
-    padding-top: 2%;
+    padding: 20px;
+    padding-top: 120px !important;
 }
 
 .gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
 }
 
 .artwork-card {
@@ -18,6 +20,25 @@
     padding: 20px;
     border-radius: 8px; 
     position: relative; /* Important pour positionnement absolu à l'intérieur */
+}
+
+.add-artwork-btn {
+    background-color: #5D5A88;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 2%;
+    text-decoration: none;
+}
+
+.add-artwork-btn div{
+    margin-top: 4px;
+    margin-left: 5px;
 }
 
 .icon-container {

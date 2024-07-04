@@ -1,6 +1,7 @@
 .container {
     margin-left: 260px;
-    padding-top: 2%;
+    padding: 20px;
+    padding-top: 120px !important;
     color: #5D5A88;
     margin-right: 2%;
 }
@@ -14,7 +15,6 @@
 .title {
     font-size: 1.8em;
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .form-input {

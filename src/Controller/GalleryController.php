@@ -34,6 +34,7 @@ class GalleryController extends AbstractController
 
         return $this->render('gallery/index.html.twig', [
             'artworks' => $artworks,
+            'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname']
         ]);
     }
@@ -79,6 +80,7 @@ class GalleryController extends AbstractController
         // Rediriger vers la page de formulaire en cas d'erreur ou afficher à nouveau le formulaire
         return $this->render('gallery/add.html.twig', [
             'user_name' => $user['firstname'] . ' ' . $user['lastname'],
+            'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'form' => $form->createView()
         ]);
     }

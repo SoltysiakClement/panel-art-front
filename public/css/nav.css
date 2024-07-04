@@ -10,17 +10,9 @@ body, html {
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #ffffff; 
+    background-color: white; 
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
     position: fixed !important;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 40px; 
 }
 
 .avatar {
@@ -84,4 +76,42 @@ body, html {
     background-color: #5D5A88;
     padding: 16px 24px;
     color: white;
+}
+
+.top {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    height: 100px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+    margin-left: 260px;
+    color: #5D5A88;
+}
+
+.user-avatar {
+    width: 40px; 
+    height: 40px; 
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%; 
+    font-weight: bold; 
+}
+
+.user-name {
+    margin-left: 10px; 
+    color: #5D5A88;
+}
+
+.logo {
+    height: 80px;
+    margin-left: 30px;
+    padding-bottom: 40px;
 }
