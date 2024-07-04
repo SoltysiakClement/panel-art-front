@@ -1,0 +1,115 @@
+/* Overall form and container styling */
+.container {
+    margin-left: 260px;
+    padding-top: 2%;
+    color: #5D5A88;
+    margin-right: 2%;
+}
+
+.form-artwork-add {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
+.title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Styling for form fields */
+.form-control {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.form-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.input-label {
+    border-right: solid 1px #D4D2E3;
+    padding-right: 10px;
+}
+
+.input-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 24px;
+}
+
+
+/* File upload area styling */
+.file-upload {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    padding-top: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 50%;
+}
+
+.file-upload p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Buttons styling */
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #5D5A88;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button img {
+    height: 24px;
+}
+
+.import {
+    display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 35%;
+}
+
+.import div {
+    padding-left: 2px;
+}
+
+button:hover {
+    background-color: #5D5A88;
+}
+
+.btn-default {
+    background-color: white;
+    color: #5D5A88;
+    border: solid 1px #5D5A88;
+}
+
+.btn-default:hover {
+    background-color: white;
+    color: #5D5A88;
+}
+
+.form-group.text-right {
+    text-align: right;
+    margin-top: 20px;
+}

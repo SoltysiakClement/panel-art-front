@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un tableau
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/clients/addClient.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% include '_navbar.html.twig' %}
+
+	<div class="container">
+		<div class="title">Ajouter un client</div>
+
+		{{ form_start(form, {'attr': {'class': ''}}) }}
+		<div class="form-input">
+			<div class="input-2">
+				{{ form_row(form.firstname, {
+					'label': 'Prénom',
+					'attr': {'class': 'form-control', 'placeholder': 'Exemple: Pierre'}
+				}) }}
+
+				{{ form_row(form.lastname, {
+					'label': 'Nom',
+					'attr': {'class': 'form-control', 'placeholder': 'Exemple: Martin'}
+				}) }}
+			</div>
+
+			{{ form_row(form.email, {
+							'label': 'Email',
+							'attr': {'class': 'form-control', 'placeholder': 'Exemple: pierre.martin@exemple.fr'}
+						}) }}
+			{{ form_row(form.phone, {
+							'label': 'Téléphone',
+							'attr': {'class': 'form-control', 'placeholder': 'Exemple: 06 66 66 66 66'}
+						}) }}
+
+			<div class="input-4">
+				{{ form_row(form.address, {
+					'label': 'Adresse',
+					'attr': {'class': 'form-control', 'placeholder': 'Exemple: 33 rue de Lille'}
+				}) }}
+
+				{{ form_row(form.complement, {
+					'label': 'Complément',
+					'attr': {'class': 'form-control', 'placeholder': 'Exemple: Appt 19 Résidence Boris Vian'}
+				}) }}
+
+				{{ form_row(form.town, {
+					'label': 'Ville',
+					'attr': {'class': 'form-control', 'placeholder': 'Exemple: Lille'}
+				}) }}
+
+				{{ form_row(form.postalCode, {
+					'label': 'Code Postal',
+					'attr': {'class': 'form-control', 'placeholder': 'Exemple: 59000'}
+				}) }}
+			</div>
+			<div class="form-group text-right">
+				<button type="button" class="btn btn-default">Annuler</button>
+				<button type="submit" class="btn btn-primary">Valider</button>
+			</div>
+		</div>
+
+
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

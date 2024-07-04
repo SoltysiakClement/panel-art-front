@@ -30,6 +30,7 @@ body {
     flex-direction: row;
     position: absolute;
     right: 2%;
+    text-decoration: none;
 }
 
 .add-client-btn div{

@@ -1,0 +1,83 @@
+.container {
+    margin-left: 260px;
+    padding-top: 2%;
+    color: #5D5A88;
+    margin-right: 2%;
+}
+
+.form-client-add {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
+.title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.form-input {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 24px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.input-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.input-label {
+    border-right: solid 1px #D4D2E3;
+    padding-right: 10px;
+}
+
+.input-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 24px;
+}
+
+/* Buttons styling */
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #5D5A88;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5D5A88;
+}
+
+.btn-default {
+    background-color: white;
+    color: #5D5A88;
+    border: solid 1px #5D5A88;
+}
+
+.btn-default:hover {
+    background-color: white;
+    color: #5D5A88;
+}
+
+.form-group.text-right {
+    text-align: right;
+    margin-top: 20px;
+}
