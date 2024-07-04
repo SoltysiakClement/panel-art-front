@@ -1,51 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Clients
-{% endblock %}
+{% block title %}Clients{% endblock %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/clients/list_clients.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/clients/list_clients.css') }}">
 {% endblock %}
 
 {% block body %}
-	{% include '_navbar.html.twig' %}
+    {% include '_navbar.html.twig' %}
 
-	<div
-		class="container">
-		{# <div class="alert">
-																	Attention! Des utilisateurs n'ont pas encore validé leur profil
-																</div> #}
-		<button class="add-client-btn">
-			<img src="{{ asset('icons/add-circle.png') }}">
-			<div>
-				Ajouter un client
-			</div>
-		</button>
-		<div class="client-count">46 clients</div>
-		<div
-			class="client-list">
-			<!-- Repeat this block for each client -->
-			<div class="client">
-				<div class="client-info">
-					<div class="client-name">Barbara Stuff</div>
-					<p>barbara.stuff@example.fr</p>
-				</div>
-				<span class="status verified">
-					<img src="{{ asset('icons/add-circle.png') }}">
-					<div>
-						Vérifié
-					</div>
-				</span>
-				<span class="status artwork">
-					<img src="{{ asset('icons/gallery-2.png') }}">
-					<div>
-						10
-					</div>
-				</span>
-				<div class="btn-edit">
-					<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>{% endblock %}
+    <div class="container">
+        <button class="add-client-btn">
+            <img src="{{ asset('icons/add-circle.png') }}">
+            <div>Ajouter un client</div>
+        </button>
+
+        <div class="client-count">{{ clients|length }} clients</div>
+
+        <div class="client-list">
+            {% for client in clients %}
+                <div class="client">
+                    <div class="client-info">
+ 					<div class="client-name">{{ client.firstname }} {{ client.lastname }}</div>                        <p>{{ client.email }}</p>
+                    </div>
+                    <span class="status verified">
+                        <img src="{{ asset('icons/add-circle.png') }}">
+                        {# <div>{{ client.status }}</div> #}
+                    </span>
+                    <span class="status artwork">
+                        <img src="{{ asset('icons/gallery-2.png') }}">
+                        {# <div>{{ client.artwork_count }}</div> #}
+                    </span>
+                    <div class="btn-edit">
+                        <img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

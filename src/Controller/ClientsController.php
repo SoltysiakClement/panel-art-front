@@ -27,11 +27,13 @@ class ClientsController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $url_artworks = $_ENV['API_URL'] . '/peintures';
-        $reponseData = $this->httpClient->request('GET', $url_artworks);
-        
+        $url_clients = $_ENV['API_URL'] . '/clients';
+        $reponseData = $this->httpClient->request('GET', $url_clients);
+        $clients = $reponseData->toArray();
+
         return $this->render('clients/index.html.twig', [
-            'user_name' => $user['firstname'].' '.$user['lastname']
+            'user_name' => $user['firstname'].' '.$user['lastname'],
+            'clients' => $clients 
         ]);
     }
     
