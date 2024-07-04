@@ -30,6 +30,10 @@ class ClientsController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        if (!in_array('ROLE_ADMIN', $user['roles'])) {
+            return $this->redirectToRoute('app_dashboard');
+        }
+
         $urlClients = $_ENV['API_URL'] . '/clients';
 
         try {
@@ -45,6 +49,7 @@ class ClientsController extends AbstractController
         $reponseData = $this->httpClient->request('GET', $url_artworks);
         
         return $this->render('clients/index.html.twig', [
+            'user'=> $user,
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname'],
             'nbClients' => $nbClients,
@@ -106,6 +111,7 @@ class ClientsController extends AbstractController
         $nbPeintures = count($peintures);
         
         return $this->render('clients/detail.html.twig', [
+            'user'=> $user,
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname'],
             'artworks' => $artworks,
@@ -123,7 +129,11 @@ class ClientsController extends AbstractController
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
-        
+
+        if (!in_array('ROLE_ADMIN', $user['roles'])) {
+            return $this->redirectToRoute('app_dashboard');
+        }
+
         $form = $this->createForm(ClientsFormType::class);
         $form->handleRequest($request);
 
@@ -165,6 +175,7 @@ class ClientsController extends AbstractController
         }
 
         return $this->render('clients/add.html.twig', [
+            'user'=> $user,
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname'],
             'form' => $form->createView()

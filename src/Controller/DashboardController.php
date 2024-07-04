@@ -67,6 +67,7 @@ class DashboardController extends AbstractController
         }
 
         return $this->render('dashboard/index.html.twig', [
+            'user'=> $user,
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'] . ' ' . $user['lastname'],
             'chiffreAffaire' => $chiffreAffaire,

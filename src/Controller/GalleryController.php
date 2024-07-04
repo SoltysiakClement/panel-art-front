@@ -28,11 +28,16 @@ class GalleryController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        if (!in_array('ROLE_PEINTRE', $user['roles'])) {
+            return $this->redirectToRoute('app_dashboard');
+        }
+
         $url = $_ENV['API_URL'] . '/peintures';
         $reponseData = $this->httpClient->request('GET', $url);
         $artworks = $reponseData->toArray();
 
         return $this->render('gallery/index.html.twig', [
+            'user'=> $user,
             'artworks' => $artworks,
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname']
@@ -79,6 +84,7 @@ class GalleryController extends AbstractController
 
         // Rediriger vers la page de formulaire en cas d'erreur ou afficher à nouveau le formulaire
         return $this->render('gallery/add.html.twig', [
+            'user'=> $user,
             'user_name' => $user['firstname'] . ' ' . $user['lastname'],
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'form' => $form->createView()
