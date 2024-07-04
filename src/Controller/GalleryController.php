@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/gallery')]
 class GalleryController extends AbstractController
 {
     private $httpClient;
@@ -19,7 +20,7 @@ class GalleryController extends AbstractController
         $this->httpClient = $httpClient;
     }
     
-    #[Route('/gallery', name: 'app_gallery')]
+    #[Route('/', name: 'app_gallery')]
     public function index(MyCacheService $cacheService): Response
     {
         $user = $cacheService->getCacheData('user');
@@ -37,7 +38,7 @@ class GalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/gallery/add', name: 'app_gallery_add')]
+    #[Route('/add', name: 'app_gallery_add')]
     public function addArtwork(Request $request, MyCacheService $cacheService): Response
     {
         $user = $cacheService->getCacheData('user');
