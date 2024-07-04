@@ -6,29 +6,27 @@
 
 h1 {
     margin-left: 1%;
+    margin-bottom: 0;
 }
 
 .dashboard {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 20px;
     background-color: #f4f4f9;
+    width: 80%;
+    height: 500px;
 }
 
 .left-panel, .right-panel {
-    flex: 1; 
     display: flex;
     flex-direction: column;
-}
-
-.left-panel {
-    margin-right: 20px; 
 }
 
 .right-panel {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    grid-gap: 20px; 
+    grid-gap: 2px; 
 }
 
 .card {
@@ -41,29 +39,51 @@ h1 {
 
 .card.large {
     flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 40px;
+    padding-top: 170px !important;
     background-color: #5D5A88;
     color: white;
 }
 
 .card-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;  
+    justify-content: flex-end;
+    align-items: flex-start;  
+    font-weight: bold;
+    padding-top: 90px !important;
 }
 
-.card-icon {
-    width: 40px;
+.title-1 {
+    font-size: 1.6em;
+    margin-top: 5px;
+}
+
+.card-content .value {
+    margin: 10px 0 0 0;
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+}
+
+.value div {
+    margin-left: 2px;
+    color: #D4D2E3;
+}
+
+.card-content img {
     height: 40px;
-    background-color: #ccc;
-    border-radius: 20px;
-    margin-bottom: 15px;
 }
 
-h2, h3 {
-    margin: 10px 0;
+.large .card-content .value {
+    font-size: 3em !important; 
 }
 
+.large .card-content img {
+    height: 92px !important;
+}
+
+.title-2 {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
