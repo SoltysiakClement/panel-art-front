@@ -45,6 +45,7 @@ class ClientsController extends AbstractController
         $reponseData = $this->httpClient->request('GET', $url_artworks);
         
         return $this->render('clients/index.html.twig', [
+            'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname'],
             'nbClients' => $nbClients,
             'clients' => $dataClients,
@@ -105,6 +106,7 @@ class ClientsController extends AbstractController
         $nbPeintures = count($peintures);
         
         return $this->render('clients/detail.html.twig', [
+            'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
             'user_name' => $user['firstname'].' '.$user['lastname'],
             'artworks' => $artworks,
             'client' => $dataClient,
@@ -163,8 +165,9 @@ class ClientsController extends AbstractController
         }
 
         return $this->render('clients/add.html.twig', [
-            'user_name' => $user['firstname'] . ' ' . $user['lastname'],
-            'form' => $form->createView(),
+            'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
+            'user_name' => $user['firstname'].' '.$user['lastname'],
+            'form' => $form->createView()
         ]);
     }
 

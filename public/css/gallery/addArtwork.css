@@ -1,9 +1,10 @@
 /* Overall form and container styling */
 .container {
     margin-left: 260px;
-    padding-top: 2%;
+    padding: 20px;
+    padding-top: 120px !important;
     color: #5D5A88;
-    margin-right: 2%;
+    margin-right: 210px;
 }
 
 .form-artwork-add {
@@ -15,7 +16,6 @@
 .title {
     font-size: 1.8em;
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 /* Styling for form fields */

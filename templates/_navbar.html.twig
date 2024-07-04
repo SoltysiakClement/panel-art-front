@@ -2,13 +2,15 @@
 	<link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 {% endblock %}
 
+<div class="top">
+	<div class="user-profile">
+		<div class="user-avatar">{{user_initials }}</div>
+		<div class="user-name">{{user_name}}</div>
+	</div>
+</div>
 <div class="sidebar">
-	{# <div class="logo">
+	<div class="logo">
 		<img src="{{ asset('icons/Logo.png') }}" alt="Logo"/>
-	</div> #}
-	<div class="user-info">
-		<div class="avatar"></div>
-		<span class="user-name">{{user_name}}</span>
 	</div>
 	<nav>
 		<div class="menu">

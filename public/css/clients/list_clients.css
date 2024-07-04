@@ -2,12 +2,10 @@ body {
     background-color: #df8ccf;
 }
 
-
 .container {
-    padding: 20px;
     margin-left: 260px;
-    padding-top: 2%;
     padding: 20px;
+    padding-top: 120px !important;
     color: #5D5A88;
     height: 100%;
 }

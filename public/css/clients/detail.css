@@ -4,16 +4,16 @@ body {
 
 .container {
     height: 100vh;
-    padding: 20px;
     margin-left: 260px;
-    padding-top: 2%;
+    padding: 20px;
+    padding-top: 120px !important;
     color: #5D5A88;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
 .info_client {
-    padding-right: 5px;
+    padding-right: 15px;
     border-right: solid 1px #D4D2E3;
     height: 50vh;
 }

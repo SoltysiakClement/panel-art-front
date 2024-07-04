@@ -72,4 +72,8 @@ class MyCacheService extends AbstractController
     {
         $this->cache->deleteItem($key);
     }
+
+    public function getInitials($firstname, $lastname) {
+        return strtoupper($firstname[0] . $lastname[0]);
+    }
 }
