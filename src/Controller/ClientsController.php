@@ -121,7 +121,7 @@ class ClientsController extends AbstractController
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
-
+        
         $form = $this->createForm(ClientsFormType::class);
         $form->handleRequest($request);
 
@@ -132,6 +132,7 @@ class ClientsController extends AbstractController
             $data = [
                 'email' => $clientData['email'],
                 'password' => $clientData['password'],
+                'role' => $clientData['role'],
                 'firstname' => $clientData['firstname'],
                 'lastname' => $clientData['lastname'],
                 'adresse' => $clientData['address'],

@@ -3,6 +3,7 @@
 namespace App\Form\Clients;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,6 +18,15 @@ class ClientsFormType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('password', TextType::class)
+            ->add('role', ChoiceType::class, [
+                'choices' => [
+                    'User' => 'ROLE_USER',
+                    'Admin' => 'ROLE_ADMIN',
+                    'Peintre' => 'ROLE_PEINTRE',
+                ],
+                'multiple' => true,
+                'expanded' => true,
+            ])
             ->add('email', EmailType::class)
             ->add('phone', NumberType::class)
             ->add('address', TextType::class)
