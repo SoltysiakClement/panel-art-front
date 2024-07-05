@@ -30,6 +30,7 @@ class DashboardController extends AbstractController
         $urlClients = $_ENV['API_URL'] . '/clients';
         $urlVentes = $_ENV['API_URL'] . '/ventes';
         $urlPeinture = $_ENV['API_URL'] . '/peintures';
+        $urlCertificats = $_ENV['API_URL'] . '/certificats';
 
         try {
             $reponseDataClients = $this->httpClient->request('GET', $urlClients);
@@ -45,9 +46,17 @@ class DashboardController extends AbstractController
             $dataVentes = [];
         }
 
+        try {
+            $reponseDataCertificats = $this->httpClient->request('GET', $urlCertificats);
+            $dataCertificats = $reponseDataCertificats->toArray();
+        } catch (\Exception $e) {
+            $dataCertificats = [];
+        }
+
         $chiffreAffaire = 0;
         $nbVentes = count($dataVentes);
         $nbClients = count($dataClients);
+        $nbCertificats = count($dataCertificats);
 
         foreach ($dataVentes as $vente) {
             try {
@@ -73,6 +82,7 @@ class DashboardController extends AbstractController
             'chiffreAffaire' => $chiffreAffaire,
             'nbVentes' => $nbVentes,
             'nbClients' => $nbClients,
+            'nbCertificats' => $nbCertificats,
         ]);
     }
 

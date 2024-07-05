@@ -53,12 +53,12 @@
 					<a href="{{ path('app_detail_client', { 'email': user.email }) }}">Profil</a>
 				</div>
 			{% endif %}
-			{% if 'ROLE_PEINTRE' in user.roles %}
-				<div class="menu-item ">
-					<img src="{{ asset('icons/gallery.png') }}" alt="Gallery"/>
-					<a href="{{ path('app_gallery') }}">Tableaux</a>
-				</div>
-			{% endif %}
+
+			<div class="menu-item ">
+				<img src="{{ asset('icons/gallery.png') }}" alt="Gallery"/>
+				<a href="{{ path('app_gallery') }}">Tableaux</a>
+			</div>
+
 			<div class="logout">
 				<a href="{{ path('app_logout') }}">Déconnexion</a>
 			</div>

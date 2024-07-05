@@ -20,16 +20,42 @@
 		<div class="gallery">
 			{% for artwork in artworks %}
 				<div class="artwork-card">
-					<div class="icon-container">
-						<a href="{{ path('app_gallery_edit', { 'id': artwork.id }) }}">
-							<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
-						</a>
-					</div>
-					<div class="icon-container" style="margin-top: 35px">
-						<a href="{{ path('app_gallery_delete', { 'id': artwork.id }) }}">
-							<img src="{{ asset('icons/trash.png') }}" alt="Delete" style="width: 25px; height: 25px;" />
-						</a>
-					</div>
+					{% if 'ROLE_PEINTRE' in user.roles %}
+						<div class="icon-container">
+							<a href="{{ path('app_gallery_edit', { 'id': artwork.id }) }}">
+								<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
+							</a>
+						</div>
+						<div class="icon-container" style="margin-top: 35px">
+							<a href="{{ path('app_gallery_delete', { 'id': artwork.id }) }}">
+								<img src="{{ asset('icons/trash.png') }}" alt="Delete" style="width: 25px; height: 25px;" />
+							</a>
+						</div>
+						<div class="icon-container" style="margin-top: 75px">
+							<a href="{{ path('app_generate_certificat', {'idPeinture': artwork.id}) }}" target="_blank">
+								<div>Générer le certificat</div>
+							</a>
+						</div>
+					{% else %}
+						{% set vendu = false %}
+						{% for vente in mesVentes %}
+							{% if vente.idPeinture == artwork.id %}
+								{% set vendu = true %}
+							{% endif %}
+						{% endfor %}
+						{% if vendu %}
+							<div class="prize-container">
+								Possédé
+							</div>
+						{% else %}
+							<div class="icon-container">
+								<a href="{{ path('app_gallery_buy', { 'idPeinture': artwork.id }) }}">
+									<img src="{{ asset('icons/acheter.png') }}" alt="Acheter" style="width: 25px; height: 25px;" />
+								</a>
+							</div>
+						{% endif %}
+					{% endif %}
+
 					<div class="image-container">
 						<img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
 					</div>
@@ -49,10 +75,12 @@
 						<div class="date">{{ artwork.createdAt|date('F Y') }}</div>
 						<div class="description">{{ artwork.description }}</div>
 					</div>
-					<div class="prize-container">
-						{{ artwork.prize }}
-						€
-					</div>
+					{% if vendu is not defined or vendu == false %}
+						<div class="prize-container">
+							{{ artwork.prize }} €
+						</div>
+					{% endif %}
+
 				</div>
 			{% endfor %}
 		</div>

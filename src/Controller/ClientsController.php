@@ -73,6 +73,7 @@ class ClientsController extends AbstractController
         $urlClient = $_ENV['API_URL'] . '/clients/' . $email;
         $urlPeinture = $_ENV['API_URL'] . '/peintures';
         $urlVentes = $_ENV['API_URL'] . '/ventes';
+        $urlCertificats = $_ENV['API_URL'] . '/certificats';
 
         try {
             $reponseDataClients = $this->httpClient->request('GET', $urlClient);
@@ -86,6 +87,13 @@ class ClientsController extends AbstractController
             $dataVentes = $reponseDataVentes->toArray();
         } catch (\Exception $e) {
             $dataVentes = [];
+        }
+
+        try {
+            $reponseDataCertificats = $this->httpClient->request('GET', $urlCertificats);
+            $dataCertificats = $reponseDataCertificats->toArray();
+        } catch (\Exception $e) {
+            $dataCertificats = [];
         }
 
         $peintures = [];
@@ -109,6 +117,14 @@ class ClientsController extends AbstractController
         }
 
         $nbPeintures = count($peintures);
+
+        $nbCertificats = 0;
+
+        foreach ($dataCertificats as $certificat){
+            if ($certificat['idClient'] == $user['id']){
+                $nbCertificats ++;
+            }
+        }
         
         return $this->render('clients/detail.html.twig', [
             'user'=> $user,
@@ -119,6 +135,8 @@ class ClientsController extends AbstractController
             'peintures' => $peintures,
             'nbPeintures' => $nbPeintures,
             'chiffreAffaire' => $chiffreAffaire,
+            'dataCertificats' => $dataCertificats,
+            'nbCertificats' => $nbCertificats,
         ]);
     }
 

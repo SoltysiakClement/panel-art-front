@@ -28,19 +28,28 @@ class GalleryController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        if (!in_array('ROLE_PEINTRE', $user['roles'])) {
-            return $this->redirectToRoute('app_dashboard');
-        }
-
         $url = $_ENV['API_URL'] . '/peintures';
         $reponseData = $this->httpClient->request('GET', $url);
         $artworks = $reponseData->toArray();
+
+        $urlVentes = $_ENV['API_URL'] . '/ventes';
+        $ventes = $this->httpClient->request('GET', $urlVentes)->toArray();
+
+        $mesVentes = [];
+
+        foreach ($ventes as $vente){
+            if ($vente['idClient'] == $user['id']){
+                $mesVentes[] = $vente;
+            }
+        }
+
 
         return $this->render('gallery/index.html.twig', [
             'user'=> $user,
             'artworks' => $artworks,
             'user_initials' => $cacheService->getInitials($user['firstname'], $user['lastname']),
-            'user_name' => $user['firstname'].' '.$user['lastname']
+            'user_name' => $user['firstname'].' '.$user['lastname'],
+            'mesVentes' => $mesVentes,
         ]);
     }
 
@@ -186,6 +195,35 @@ class GalleryController extends AbstractController
         }
 
         return $this->redirectToRoute('app_gallery');
+    }
+
+    #[Route('/buy/{idPeinture}', name: 'app_gallery_buy')]
+    public function buy(int $idPeinture, MyCacheService $cacheService): Response
+    {
+        $user = $cacheService->getCacheData('user');
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $url = $_ENV['API_URL'].'/ventes';
+
+        $data = [
+            'idClient' => $user['id'],
+            'idPeinture' => $idPeinture,
+            'amount' => 1,
+            'status' => 'disponible',
+        ];
+
+        try {
+            $response = $this->httpClient->request('POST', $url, [
+                'json' => $data,
+            ]);
+
+            return $this->redirectToRoute('app_detail_client', ['email' => $user['email']]);
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'An error occurred: ' . $e->getMessage());
+        }
+        return $this->redirectToRoute('app_detail_client', ['email' => $user['email']]);
     }
 
 

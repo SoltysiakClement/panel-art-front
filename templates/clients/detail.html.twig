@@ -12,7 +12,7 @@
 
 	<div class="container">
 		<div class="info_client">
-			<h1>Barbara Stuff</h1>
+			<h1>{{ client.firstname }} {{ client.lastname }}</h1>
 			<div class="info-box">
 				<p>
 					<b>Adresse email :</b>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="card" style="margin: 0 10px">
 				<div class="label">Certificats</div>
-				<div class="number">18</div>
+				<div class="number">{{ nbCertificats }}</div>
 			</div>
 			<div class="card">
 				<div class="label">Argents dépensés</div>
@@ -45,14 +45,21 @@
 	<div class="gallery">
 		{% for artwork in peintures %}
 			<div class="artwork-card">
-				<div class="icon-container">
-					<img src="{{ asset('icons/user-octagon.png') }}"/>
-					<div>Envoyer le certificat</div>
-				</div>
-				{# <div class="icon-container">
-																			<img src="{{ asset('icons/receipt-edit.png') }}" />
-																			<div>Générer le certificat</div>
-																		</div> #}
+				{% set succes = false %}
+				{% for certificat in dataCertificats %}
+					{% if certificat.idPeinture == artwork.id %}
+						{% set succes = true %}
+					{% endif %}
+				{% endfor %}
+
+				{% if succes %}
+					<div class="icon-container">
+						<a href="{{ path('app_generate_certificat', {'idPeinture': artwork.id}) }}" target="_blank">
+							<div>Ouvrir le certificat</div>
+						</a>
+					</div>
+				{% endif %}
+
 				<div class="image-container">
 					<img src="{{ asset('image/tableau-exemple.png') }}" alt="Image du tableau"/>
 				</div>
