@@ -11,12 +11,14 @@
 	{% include '_navbar.html.twig' %}
 
 	<div class="container">
-		<a href="{{ path('app_gallery_add') }}" class="add-artwork-btn">
-			<img src="{{ asset('icons/add-circle.png') }}">
-			<div>
-				Ajouter un tableau
-			</div>
-		</a>
+		{% if 'ROLE_PEINTRE' in user.roles %}
+			<a href="{{ path('app_gallery_add') }}" class="add-artwork-btn">
+				<img src="{{ asset('icons/add-circle.png') }}">
+				<div>
+					Ajouter un tableau
+				</div>
+			</a>
+		{% endif %}
 		<div class="gallery">
 			{% for artwork in artworks %}
 				<div class="artwork-card">

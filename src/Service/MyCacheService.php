@@ -42,7 +42,7 @@ class MyCacheService extends AbstractController
     {
         $cacheItem = $this->cache->getItem($key);
         $cacheItem->set($data);
-        $cacheItem->expiresAfter(3600); // Définit le temps de vie du cache (en secondes)
+        $cacheItem->expiresAfter(30); // Définit le temps de vie du cache (en secondes)
         $this->cache->save($cacheItem);
     }
 
