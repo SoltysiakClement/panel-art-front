@@ -22,18 +22,18 @@
 				<div class="artwork-card">
 					{% if 'ROLE_PEINTRE' in user.roles %}
 						<div class="icon-container">
-							<a href="{{ path('app_gallery_edit', { 'id': artwork.id }) }}">
+							<a href="{{ path('app_gallery_edit', { 'id': artwork.id }) }}" data-toggle="tooltip" data-placement="left" title="Modifier le tableau">
 								<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
 							</a>
 						</div>
 						<div class="icon-container" style="margin-top: 35px">
-							<a href="{{ path('app_gallery_delete', { 'id': artwork.id }) }}">
-								<img src="{{ asset('icons/trash.png') }}" alt="Delete" style="width: 25px; height: 25px;" />
+							<a href="{{ path('app_gallery_delete', { 'id': artwork.id }) }}" data-toggle="tooltip" data-placement="left" title="Supprimer le tableau">
+								<img src="{{ asset('icons/trash.png') }}" alt="Delete" style="width: 25px; height: 25px;"/>
 							</a>
 						</div>
 						<div class="icon-container" style="margin-top: 75px">
-							<a href="{{ path('app_generate_certificat', {'idPeinture': artwork.id}) }}" target="_blank">
-								<div>Générer le certificat</div>
+							<a href="{{ path('app_generate_certificat', {'idPeinture': artwork.id}) }}" target="_blank" data-toggle="tooltip" data-placement="left" title="Générer un certificat">
+								<img src="{{ asset('icons/certificat.png') }}" alt="Certificat" style="width: 25px; height: 25px;"/>
 							</a>
 						</div>
 					{% else %}
@@ -50,7 +50,7 @@
 						{% else %}
 							<div class="icon-container">
 								<a href="{{ path('app_gallery_buy', { 'idPeinture': artwork.id }) }}">
-									<img src="{{ asset('icons/acheter.png') }}" alt="Acheter" style="width: 25px; height: 25px;" />
+									<img src="{{ asset('icons/acheter.png') }}" alt="Acheter" style="width: 25px; height: 25px;"/>
 								</a>
 							</div>
 						{% endif %}
@@ -77,7 +77,8 @@
 					</div>
 					{% if vendu is not defined or vendu == false %}
 						<div class="prize-container">
-							{{ artwork.prize }} €
+							{{ artwork.prize }}
+							€
 						</div>
 					{% endif %}
 

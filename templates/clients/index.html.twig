@@ -24,7 +24,6 @@
 		<div class="client-count">{{ nbClients }} clients</div>
 		<div
 			class="client-list">
-			<!-- Repeat this block for each client -->
 			{% for client in clients %}
 				<div class="client">
 					<div class="client-info">
@@ -43,7 +42,7 @@
 						</div>
 					</span>
 					<div class="btn-edit">
-						<a href="{{ path('app_detail_client', { 'email': client.email }) }}">
+						<a href="{{ path('app_detail_client', { 'email': client.email }) }}" data-toggle="tooltip" data-placement="left" title="Modifier le client">
 							<img src="{{ asset('icons/brush.png') }}" alt="Edit"/>
 						</a>
 					</div>
